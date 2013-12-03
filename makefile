@@ -2,10 +2,10 @@
 all: test leonid
 
 leonid: leonid.cpp hog_sse.o
-	g++ hog_sse.o leonid.cpp -O3 -o leonid -lopencv_core -lopencv_highgui -lopencv_imgproc -msse4.1
+	g++ hog_sse.o leonid.cpp -O3 -o leonid -lopencv_core -lopencv_highgui -lopencv_imgproc -msse4.1 `pkg-config opencv --cflags`
 
 test: test.cpp hog_sse.o
-	g++ hog_sse.o test.cpp -O3 -o test -lopencv_core -lopencv_highgui -lopencv_imgproc -msse4.1
+	g++ hog_sse.o test.cpp -O3 -o test -lopencv_core -lopencv_highgui -lopencv_imgproc -msse4.1 `pkg-config opencv --libs`
 
 hog_sse.o: hog_sse.cpp
 	g++ -O3 -msse4.1 -c hog_sse.cpp -o hog_sse.o

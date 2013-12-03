@@ -1,8 +1,8 @@
 
-#include <opencv/cv.h>
-#include <opencv/highgui.h>
-#include <opencv2/highgui.hpp>
-#include <opencv2/imgproc.hpp>
+#include <opencv2/opencv.hpp>
+//#include <opencv/highgui.h>
+//#include <opencv2/highgui.hpp>
+//#include <opencv2/imgproc.hpp>
 
 #include <stdio.h>  
 #include <sys/time.h>
@@ -42,10 +42,10 @@ int main(int, char**)
 	uint64 start = tv.tv_usec;
 	
 	// Convert from micro seconds (10^-6) to milliseconds (10^-3)
-	//start /= 1000;
+	start /= 1000;
 
 	// Adds the seconds (10^0) after converting them to milliseconds (10^-3)
-	//start += (tv.tv_sec * 1000);
+	start += (tv.tv_sec * 1000);
 	
 	histograms_of_gradient_directions_sse(src.data, bin0.data, bin1.data, bin2.data, bin3.data, bin4.data, bin5.data, bin6.data, bin7.data, bin8.data, bin9.data, bin10.data, bin11.data, bin12.data, bin13.data, bin14.data, bin15.data, src.cols, src.rows, 5);
 
@@ -54,10 +54,10 @@ int main(int, char**)
 	uint64 end = tv.tv_usec;
 	
 	// Convert from micro seconds (10^-6) to milliseconds (10^-3)
-	//end /= 1000;
+	end /= 1000;
 
 	// Adds the seconds (10^0) after converting them to milliseconds (10^-3)
-	//end += (tv.tv_sec * 1000);
+	end += (tv.tv_sec * 1000);
 
 	cout << "Time: " << (end - start) << endl;
 
